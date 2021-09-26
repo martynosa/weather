@@ -1,0 +1,17 @@
+.input-group {
+  padding-top: 30px;
+  width: 320px;
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #F7F7F7;
+}
