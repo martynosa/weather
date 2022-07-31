@@ -1,36 +1,57 @@
-import { useEffect, useState, useRef } from 'react';
 import React from 'react';
+import { useEffect, useState } from 'react';
 
 import './style.css';
-import Card from './Card';
-import LoadingCard from './LoadingCard';
+import PrimaryCard from './Components/PrimaryCard';
+import LoadingCard from './Components/LoadingCard';
+import Input from './Components/Input';
+import SecondaryCard from './Components/SecondaryCard';
+import { transformData } from './helpers';
+import RegionTitle from './Components/RegionTitle';
 
 export default function App() {
-
-  let inputEl = useRef();
   const [location, setLocation] = useState('');
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    return fetch(`https://wttr.in/${location}?format=j1`)
-      .then(res => res.json())
-      .then(result => {
-        setWeather(result);
+    fetch(`https://wttr.in/${location}?format=j1`)
+      .then((res) => res.json())
+      .then((result) => {
+        setWeather(transformData(result));
         setLoading(false);
       });
   }, [location]);
 
-  return <>
-    <div className="input-group mb-3">
-      <input ref={inputEl} id="locationInput" type="text" className="form-control" placeholder="location..." />
-      <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={() => setLocation(inputEl.current.value)}>Show</button>
-    </div>
-    {loading
-      ? <LoadingCard />
-      : <Card weather={weather} />}
-  </>
-
+  return (
+    <>
+      <div className="container">
+        <Input setLocation={setLocation} />
+        <RegionTitle location={weather.location} loading={loading} />
+        {loading ? (
+          <LoadingCard type={'primary'} />
+        ) : (
+          <PrimaryCard weather={weather.data} />
+        )}
+        <div className="cards-container">
+          {loading ? (
+            <LoadingCard type={'secondary'} />
+          ) : (
+            <SecondaryCard weather={weather.today} />
+          )}
+          {loading ? (
+            <LoadingCard type={'secondary'} />
+          ) : (
+            <SecondaryCard weather={weather.tomorrow} />
+          )}
+          {loading ? (
+            <LoadingCard type={'secondary'} />
+          ) : (
+            <SecondaryCard weather={weather.afterTomorrow} />
+          )}
+        </div>
+      </div>
+    </>
+  );
 }
-
