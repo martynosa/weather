@@ -4,6 +4,11 @@ import { useRef } from 'react';
 export default function Input({ setLocation }) {
   const inputEl = useRef();
 
+  const clickHandler = () => {
+    setLocation(inputEl.current.value);
+    inputEl.current.value = '';
+  };
+
   return (
     <div className="group">
       <input
@@ -12,11 +17,7 @@ export default function Input({ setLocation }) {
         className="input"
         placeholder="Location..."
       />
-      <button
-        className="button"
-        type="button"
-        onClick={() => setLocation(inputEl.current.value)}
-      >
+      <button className="button" type="button" onClick={clickHandler}>
         Show
       </button>
     </div>
