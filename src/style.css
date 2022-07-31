@@ -16,6 +16,13 @@ body {
   background: #f8f9fa;
 }
 
+.clicks-counter {
+  position: absolute;
+  font-size: 2.4rem;
+  margin: 2.4rem;
+  color: #e67700;
+}
+
 .container {
   min-height: 100vh;
   padding: 1.6rem;

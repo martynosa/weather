@@ -2,17 +2,26 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import './style.css';
-import PrimaryCard from './Components/PrimaryCard';
-import LoadingCard from './Components/LoadingCard';
+import ClickCounter from './Components/ClickCounter';
 import Input from './Components/Input';
+import RegionTitle from './Components/RegionTitle';
+import LoadingCard from './Components/LoadingCard';
+import PrimaryCard from './Components/PrimaryCard';
 import SecondaryCard from './Components/SecondaryCard';
 import { transformData } from './helpers';
-import RegionTitle from './Components/RegionTitle';
 
 export default function App() {
+  const [clicks, setClicks] = useState(0);
   const [location, setLocation] = useState('');
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const clickHandler = () => {
+    setClicks((prevState) => {
+      return prevState + 1;
+    });
+    console.log(clicks);
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -26,29 +35,39 @@ export default function App() {
 
   return (
     <>
+      <ClickCounter clicks={clicks} />
       <div className="container">
         <Input setLocation={setLocation} />
         <RegionTitle location={weather.location} loading={loading} />
         {loading ? (
           <LoadingCard type={'primary'} />
         ) : (
-          <PrimaryCard weather={weather.data} />
+          <PrimaryCard weather={weather.data} clickHandler={clickHandler} />
         )}
         <div className="cards-container">
           {loading ? (
             <LoadingCard type={'secondary'} />
           ) : (
-            <SecondaryCard weather={weather.today} />
+            <SecondaryCard
+              weather={weather.today}
+              clickHandler={clickHandler}
+            />
           )}
           {loading ? (
             <LoadingCard type={'secondary'} />
           ) : (
-            <SecondaryCard weather={weather.tomorrow} />
+            <SecondaryCard
+              weather={weather.tomorrow}
+              clickHandler={clickHandler}
+            />
           )}
           {loading ? (
             <LoadingCard type={'secondary'} />
           ) : (
-            <SecondaryCard weather={weather.afterTomorrow} />
+            <SecondaryCard
+              weather={weather.afterTomorrow}
+              clickHandler={clickHandler}
+            />
           )}
         </div>
       </div>

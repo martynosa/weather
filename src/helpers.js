@@ -89,6 +89,7 @@ export function transformData(weather) {
 
   //data
   const currCondition = weather.current_condition[0];
+  const cloudCover = currCondition.cloudcover;
   const windSpeed = currCondition.windspeedKmph;
   const humidity = currCondition.humidity;
   const temp = currCondition.temp_C;
@@ -141,6 +142,7 @@ export function transformData(weather) {
       country,
     },
     data: {
+      cloudCover,
       windSpeed,
       humidity,
       temp,
