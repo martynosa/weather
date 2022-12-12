@@ -30,6 +30,10 @@ body {
 }
 
 /* input */
+.input-group {
+  display: flex;
+}
+
 .input {
   border: none;
   padding: 0.8rem 1.6rem;
@@ -63,6 +67,7 @@ body {
 }
 
 .region-title {
+  font-weight: 700;
   text-align: center;
 }
 
@@ -77,6 +82,7 @@ body {
 }
 
 .card-header {
+  font-weight: 500;
   background-color: #d0ebff;
   padding: 0.8rem 1.6rem;
   display: flex;

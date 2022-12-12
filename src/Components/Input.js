@@ -10,7 +10,7 @@ export default function Input({ setLocation }) {
   };
 
   return (
-    <div className="group">
+    <div className="input-group">
       <input
         ref={inputEl}
         type="text"
