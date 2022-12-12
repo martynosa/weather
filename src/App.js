@@ -6,7 +6,6 @@ import Input from './Components/Input';
 import RegionTitle from './Components/RegionTitle';
 import LoadingCard from './Components/LoadingCard';
 import PrimaryCard from './Components/PrimaryCard';
-import SecondaryCard from './Components/SecondaryCard';
 import { transformData } from './helpers';
 
 export default function App() {
@@ -29,28 +28,15 @@ export default function App() {
       <div className="container">
         <Input setLocation={setLocation} />
         <RegionTitle location={weather.location} loading={loading} />
-        {loading ? (
-          <LoadingCard type={'primary'} />
-        ) : (
-          <PrimaryCard weather={weather.data} />
+        {loading && <LoadingCard type={'primary'} />}
+        {!loading && (
+          <PrimaryCard
+            weather={weather.data}
+            today={weather.today}
+            tomorrow={weather.tomorrow}
+            afterTomorrow={weather.afterTomorrow}
+          />
         )}
-        <div className="cards-container">
-          {loading ? (
-            <LoadingCard type={'secondary'} />
-          ) : (
-            <SecondaryCard weather={weather.today} />
-          )}
-          {loading ? (
-            <LoadingCard type={'secondary'} />
-          ) : (
-            <SecondaryCard weather={weather.tomorrow} />
-          )}
-          {loading ? (
-            <LoadingCard type={'secondary'} />
-          ) : (
-            <SecondaryCard weather={weather.afterTomorrow} />
-          )}
-        </div>
       </div>
     </>
   );
