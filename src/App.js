@@ -18,7 +18,9 @@ export default function App() {
     fetch(`https://wttr.in/${location}?format=j1`)
       .then((res) => res.json())
       .then((result) => {
-        setWeather(transformData(result));
+        const transformedData = transformData(result);
+        document.title = transformedData.data.condition;
+        setWeather(transformedData);
         setLoading(false);
       });
   }, [location]);
