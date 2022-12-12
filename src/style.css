@@ -135,7 +135,6 @@ body {
 }
 
 /* Loading */
-
 .loading {
   width: 80%;
   background-color: #d0ebff;
@@ -144,6 +143,12 @@ body {
 
 .loading-header {
   width: 80%;
+  background-color: #e7f5ff;
+  border-radius: 6px;
+}
+
+.loading-title {
+  width: 10%;
   background-color: #e7f5ff;
   border-radius: 6px;
 }
