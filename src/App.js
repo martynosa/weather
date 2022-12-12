@@ -5,7 +5,7 @@ import './style.css';
 import Input from './Components/Input';
 import RegionTitle from './Components/RegionTitle';
 import LoadingCard from './Components/LoadingCard';
-import PrimaryCard from './Components/PrimaryCard';
+import Card from './Components/Card';
 import { transformData } from './helpers';
 
 export default function App() {
@@ -30,9 +30,9 @@ export default function App() {
       <div className="container">
         <Input setLocation={setLocation} />
         <RegionTitle location={weather.location} loading={loading} />
-        {loading && <LoadingCard type={'primary'} />}
+        {loading && <LoadingCard />}
         {!loading && (
-          <PrimaryCard
+          <Card
             weather={weather.data}
             today={weather.today}
             tomorrow={weather.tomorrow}
