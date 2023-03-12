@@ -132,3 +132,10 @@ body {
   background-color: #e7f5ff;
   border-radius: 6px;
 }
+
+/* Error */
+.error {
+  padding: 0.8rem 1.6rem;
+  background-color: #ffe3e3;
+  border-radius: 6px;
+}

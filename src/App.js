@@ -12,6 +12,7 @@ export default function App() {
   const [location, setLocation] = useState('');
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -22,6 +23,9 @@ export default function App() {
         document.title = transformedData.data.condition;
         setWeather(transformedData);
         setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
       });
   }, [location]);
 
@@ -29,6 +33,9 @@ export default function App() {
     <>
       <div className="container">
         <Input setLocation={setLocation} />
+        {error && (
+          <p className="error">Internal error. Please try again later.</p>
+        )}
         <RegionTitle location={weather.location} loading={loading} />
         {loading && <LoadingCard />}
         {!loading && (
