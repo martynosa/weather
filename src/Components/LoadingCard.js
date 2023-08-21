@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function LoadingCard() {
   return (
@@ -8,19 +8,19 @@ export default function LoadingCard() {
         <h5 className="loading-header">&nbsp;</h5>
       </div>
       <div className="card-body">
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
       </div>
       <div className="border" />
       <div className="card-body">
-        <p className="card-text loading">&nbsp;</p>
-        <p className="card-text loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
+        <p className="loading">&nbsp;</p>
       </div>
     </div>
   );

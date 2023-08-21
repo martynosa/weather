@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function Card({ weather, today, tomorrow, afterTomorrow }) {
   return (
@@ -8,21 +8,21 @@ export default function Card({ weather, today, tomorrow, afterTomorrow }) {
         <h5>{weather.condition}</h5>
       </div>
       <div className="card-body">
-        <p className="card-text">🌡 Temp: {weather.temp}°C</p>
-        <p className="card-text">🌡 Feels like: {weather.feelsLike}°C</p>
-        <p className="card-text">☁ Cloud cover: {weather.cloudCover}%</p>
-        <p className="card-text">💨 Wind speed: {weather.windSpeed} km/h</p>
-        <p className="card-text">💧 Humidity: {weather.humidity}%</p>
-        <p className="card-text">🕶 UV Index: {today.uvIndex}</p>
-        <p className="card-text">☀ Sun hours: {today.sunHour}h</p>
-        <p className="card-text">🌑 Moon phase: {today.moonPhase}</p>
+        <p>🌡 Temp: {weather.temp}°C</p>
+        <p>🌡 Feels like: {weather.feelsLike}°C</p>
+        <p>☁ Cloud cover: {weather.cloudCover}%</p>
+        <p>💨 Wind speed: {weather.windSpeed} km/h</p>
+        <p>💧 Humidity: {weather.humidity}%</p>
+        <p>🕶 UV Index: {today.uvIndex}</p>
+        <p>☀ Sun hours: {today.sunHour}h</p>
+        <p>🌑 Moon phase: {today.moonPhase}</p>
       </div>
       <div className="border" />
       <div className="card-body">
-        <p className="card-text">
+        <p>
           {tomorrow.date} - 🌡 Temp: {tomorrow.minTemp}/{tomorrow.maxTemp}°C
         </p>
-        <p className="card-text">
+        <p>
           {afterTomorrow.date} - 🌡 Temp: {afterTomorrow.minTemp}/
           {afterTomorrow.maxTemp}°C
         </p>

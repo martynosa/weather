@@ -1,15 +1,15 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
 
-import './style.css';
-import Input from './Components/Input';
-import RegionTitle from './Components/RegionTitle';
-import LoadingCard from './Components/LoadingCard';
-import Card from './Components/Card';
-import { transformData } from './helpers';
+import "./style.css";
+import Input from "./Components/Input";
+import RegionTitle from "./Components/RegionTitle";
+import LoadingCard from "./Components/LoadingCard";
+import Card from "./Components/Card";
+import { transformData } from "./helpers";
 
 export default function App() {
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState("");
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
